@@ -1,6 +1,9 @@
-*.pyc
-*.swp
-env/
+__pycache__
+*.pyc*
+.pytest_cache
+*-info/
+
+*.env
+
 build/
 dist/
-*.egg-info/

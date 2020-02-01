@@ -1,31 +1,34 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-from setuptools import setup
-
+from setuptools import setup  # type: ignore
 setup(
-    name='requests_aws_sign',
-    version='0.1.5',
-    packages=[ 'requests_aws_sign' ],
-    install_requires=[ 'requests>=2.0.0', 'boto3' ],
-    provides=[ 'requests_aws_sign' ],
-    author='Justin Menga',
-    author_email='justin.menga@gmail.com',
-    url='https://github.com/jmenga/requests-aws-sign',
-    description='This package provides AWS V4 request signing using the requests library.',
-    keywords='requests aws',
-    license='ISC',
+    author_email="mateus.amin@cleardata.com, bentron.drew@cleardata.com",
+    author="Mateus Amin, Bentron Drew",
     classifiers=[
-        'Development Status :: 4 - Beta',
+        'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
+        'Intended Audience :: System Administrators',
+        'Natural Language :: English',
+        'License :: OSI Approved :: Apache Software License',
         'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.6',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
-        'License :: OSI Approved :: ISC License (ISCL)',
+        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
     ],
+    description=
+    "AWS IAM authentication for Requests. The following services are fully supported: API Gateway v1",
+    install_requires=["botocore>=1.14.0", "requests>=2.21.0"],
+    keywords=
+    "AWS IAM authentication auth AWS amazon API Gateway v1 Requests Signature v4",
+    long_description_content_type="text/markdown",
+    long_description=open('README.md').read(),
+    name="requests_aws_iam",
+    project_urls={
+        "Bug Tracker":
+        "https://github.com/cleardataeng/requests_aws_iam/issues",
+        "Documentation":
+        "https://github.com/cleardataeng/requests_aws_iam/readme.md",
+        "Source Code": "https://github.com/cleardataeng/requests_aws_iam/",
+    },
+    python_requires='>=3.7.0',
+    url="https://github.com/cleardataeng/",
+    version="0.99.1",
 )

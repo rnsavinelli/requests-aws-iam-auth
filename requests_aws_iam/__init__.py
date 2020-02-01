@@ -1,0 +1,1 @@
+from .auth_aws_iam_api_gateway import AuthAwsIamApiGateway
