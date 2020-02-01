@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# TODO What is with the .egg-info directory build artifact?
 python3 setup.py -q sdist bdist_wheel
 
 twine check dist/*

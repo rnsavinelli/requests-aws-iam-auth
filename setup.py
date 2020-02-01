@@ -14,7 +14,7 @@ setup(
         'Programming Language :: Python :: 3.8',
     ],
     description=
-    "AWS IAM authentication for Requests. The following services are fully supported: API Gateway v1",
+    "An AWS IAM authentication package for Requests. Supported services: API Gateway v1",
     install_requires=["botocore>=1.14.0", "requests>=2.21.0"],
     keywords=
     "AWS IAM authentication auth AWS amazon API Gateway v1 Requests Signature v4",
@@ -22,13 +22,12 @@ setup(
     long_description=open('README.md').read(),
     name="requests_aws_iam",
     project_urls={
-        "Bug Tracker":
-        "https://github.com/cleardataeng/requests_aws_iam/issues",
+        "Bug Tracker": "https://github.com/mateusamin/requests_aws_iam/issues",
         "Documentation":
-        "https://github.com/cleardataeng/requests_aws_iam/readme.md",
-        "Source Code": "https://github.com/cleardataeng/requests_aws_iam/",
+        "https://github.com/mateusamin/requests_aws_iam/readme.md",
+        "Source Code": "https://github.com/mateusamin/requests_aws_iam/",
     },
     python_requires='>=3.7.0',
-    url="https://github.com/cleardataeng/",
+    url="https://github.com/mateusamin/requests_aws_iam",
     version="0.99.1",
 )

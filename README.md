@@ -1,9 +1,11 @@
-# requests_aws_iam_api_gateway
+# requests_aws_iam
 An AWS IAM authentication package for Requests. Supported services: API Gateway v1. It was engineered, like many GMOs, to help humans.
 
 This is intended for use in production environments at the 1.0 release.
 
 ## Example
+
+### API Gateway v1
 ```python
 import requests
 import requests_aws_iam_api_gateway
@@ -15,8 +17,6 @@ requests.get("https://p7xw90rcx4.execute-api.us-east-1.amazonaws.com/s/", auth=a
 ```
 
 ## Developer Information
-### API Gateway
-API Gateway v1 (REST) is supported.
 
 ### Dependencies
 Botocore
@@ -32,12 +32,14 @@ If the method is not GET, HEAD, or OPTIONS, has a payload, and the user does not
 
 If there's a Date header, we set the date header. Otherwise, we set the X-Amz-Date header.
 
+The underlying http.client will derive an unsigned accept-encoding header if not user specified.
+
 If using STS x-amz-security-token will be set by this library.
 
 ### Payload
 The payload is always signed using SHA 256.
 
-### Protocol
+### Protocols
 HTTP and HTTPS 1.1 are supported.
 
 ### Python
@@ -59,10 +61,8 @@ Botocore relies on http.client deriving the host when absent. Botocore replacate
 ## TODO
 - Add testing of three most recent python versions. Use docker not tox. No reason to bloat the stack.
 - Add fuzzing?
-- What is with the .egg-info directory build artifact?
-- Move to Github
 - Add CI build. Keep it portable and deterministic.
 - Upload to pypi prod
 - Support AWS API Gateway v2 if it adds IAM Auth as a feature. Same for HTTP2.
 - Add Requests v3 support.
-- connection header. The connection header is getting set to blank somewhere post auth and the server signing (inclusive). Could be a AWS, Requests, urllib3, botocore, or http.client. Have ruled out botocore. Can rule out the urllib3 and http.client by reading the sent request on the wire. As a temporary workaround we do not sign it.
+- connection header. The connection header is set to blank between post auth and the server signing (inclusive). Could be a AWS, Requests, urllib3, botocore, or http.client. Have ruled out botocore. Can rule out the urllib3 and http.client by reading the sent request on the wire. As a temporary workaround we do not sign it.
