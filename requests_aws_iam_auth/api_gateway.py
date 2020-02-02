@@ -1,4 +1,6 @@
-from botocore import AWSRequest, Session, SigV4Auth  # type: ignore
+from botocore.awsrequest import AWSRequest  # type: ignore
+from botocore.session import Session  # type: ignore
+from botocore.auth import SigV4Auth  # type: ignore
 from requests.auth import AuthBase
 from requests import PreparedRequest
 

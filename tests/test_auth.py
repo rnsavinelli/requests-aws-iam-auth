@@ -1,14 +1,14 @@
 import os
 import pytest  # type: ignore
 import requests
-import requests_aws_iam_api_gateway
+import requests_aws_iam_auth
 
 
 @pytest.fixture()
 def s():
     os.environ['AWS_PROFILE'] = 'juno-dev'
     s = requests.Session()
-    s.auth = requests_aws_iam_api_gateway.AuthAwsIamApiGateway()
+    s.auth = requests_aws_iam_auth.ApiGateway()
     return s
 
 
@@ -30,7 +30,7 @@ def sf():
     if 'AWS_PROFILE' in os.environ:
         del os.environ['AWS_PROFILE']
     s = requests.Session()
-    s.auth = requests_aws_iam_api_gateway.AuthAwsIamApiGateway()
+    s.auth = requests_aws_iam_auth.ApiGateway()
     return s
 
 
