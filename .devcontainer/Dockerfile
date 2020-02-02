@@ -26,6 +26,9 @@ RUN pip --disable-pip-version-check --no-cache-dir install --user --install-opti
     && apt-get update \
     && apt-get -y install --no-install-recommends apt-utils dialog dos2unix 2>&1 \
     #
+    # Git
+    && git config --global commit.gpgsign false \
+    #
     #
     && dos2unix -f -q /root/.aws/config /root/.aws/credentials \
     #
