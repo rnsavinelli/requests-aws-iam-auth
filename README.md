@@ -1,17 +1,15 @@
-# requests_aws_iam
-An AWS IAM authentication package for Requests. Supported services: API Gateway v1. It was engineered, like many GMOs, to help humans.
-
-This is intended for use in production environments at the 1.0 release.
+# Requests AWS IAM Auth
+An AWS IAM authentication package for Requests. Supported services: API Gateway v1. This is intended for use in production environments at the 1.0 release.
 
 ## Example
 
 ### API Gateway v1
 ```python
 import requests
-import requests_aws_iam_api_gateway
+import requests_aws_iam_auth
 
 # Provide AWS creds and config per Boto3 specs: https://tknk.io/ri3v
-auth = requests_aws_iam_api_gateway.AuthAwsIamApiGateway()
+auth = requests_aws_iam_auth.ApiGateway()
 
 requests.get("https://p7xw90rcx4.execute-api.us-east-1.amazonaws.com/s/", auth=auth)
 ```
@@ -52,13 +50,21 @@ Requests uses urllib3 which uses http.client.
 
 Botocore relies on http.client deriving the host when absent. Botocore replacates this deravation and signs with it but does not append the header to the sent request. This has the potential for a mismatch error. There is a TODO in botocore to set the host header in the request.
 
+### Maintainers
+#### Core
+Mateus Amin and Benton Drew
+#### API Gateway v1
+Mateus Amin and Benton Drew
+#### Some Other Service
+????
+
 ### References
 - https://docs.python.org/3/library/http.client.html#module-http.client
 - https://hg.python.org/cpython/file/3.2/Lib/http/client.py
 - https://github.com/urllib3/urllib3/blob/063d888bc247eb6bd7aedcd32412bbb53c3c6ffb/src/urllib3/connection.py#L195
 - https://github.com/psf/requests/blob/7b565d886c852609a849e79e4ad8f3f8fa8d8c23/requests/adapters.py#L166
 
-## TODO
+### TODO
 - Add testing of three most recent python versions. Use docker not tox. No reason to bloat the stack.
 - Add fuzzing?
 - Add CI build. Keep it portable and deterministic.

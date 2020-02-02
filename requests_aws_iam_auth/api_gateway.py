@@ -3,7 +3,7 @@ from requests.auth import AuthBase
 from requests import PreparedRequest
 
 
-class AuthAwsIamApiGateway(AuthBase):
+class ApiGateway(AuthBase):
     def __init__(self) -> None:
         botocore_session = Session.Session()
         self.credentials = botocore_session.get_credentials()
