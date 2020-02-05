@@ -17,7 +17,7 @@ ARG USER_GID=$USER_UID
 # COPY requirements.txt /tmp/pip-tmp/
 
 # Use .aws creds
-#COPY --chown=600 .aws/* /root/.aws/
+COPY --chown=600 .aws/* /root/.aws/
 
 # Install pylint & mypy & ENV variables
 RUN pip --disable-pip-version-check --no-cache-dir install --user --install-option="--install-scripts=/usr/local/bin" yapf mypy \

@@ -29,5 +29,5 @@ setup(
     },
     python_requires='>=3.7.0',
     url="https://github.com/mateusamin/requests_aws_iam",
-    version="0.99.1",
+    version="0.1.2",
 )
