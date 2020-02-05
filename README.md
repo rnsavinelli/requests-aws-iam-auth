@@ -68,7 +68,6 @@ Mateus Amin and Benton Drew
 - Add testing of three most recent python versions. Use docker not tox. No reason to bloat the stack.
 - Add fuzzing?
 - Add CI build. Keep it portable and deterministic.
-- Upload to pypi prod
 - Support AWS API Gateway v2 if it adds IAM Auth as a feature. Same for HTTP2.
 - Add Requests v3 support.
 - connection header. The connection header is set to blank between post auth and the server signing (inclusive). Could be a AWS, Requests, urllib3, botocore, or http.client. Have ruled out botocore. Can rule out the urllib3 and http.client by reading the sent request on the wire. As a temporary workaround we do not sign it.

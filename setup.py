@@ -20,14 +20,15 @@ setup(
     "AWS IAM authentication auth AWS amazon API Gateway v1 Requests Signature v4",
     long_description_content_type="text/markdown",
     long_description=open('README.md').read(),
-    name="requests_aws_iam",
+    name="requests_aws_iam_auth",
     project_urls={
-        "Bug Tracker": "https://github.com/mateusamin/requests_aws_iam/issues",
+        "Bug Tracker":
+        "https://github.com/mateusamin/requests-aws-iam-auth/issues",
         "Documentation":
-        "https://github.com/mateusamin/requests_aws_iam/readme.md",
-        "Source Code": "https://github.com/mateusamin/requests_aws_iam/",
+        "https://github.com/MateusAmin/requests-aws-iam-auth/blob/master/README.md",
+        "Source Code": "https://github.com/mateusamin/requests-aws-iam-auth/",
     },
     python_requires='>=3.7.0',
-    url="https://github.com/mateusamin/requests_aws_iam",
+    url="https://github.com/mateusamin/requests-aws-iam-auth/",
     version="0.1.2",
 )

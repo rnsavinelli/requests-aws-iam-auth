@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VERSION=1
+VERSION=2
 
 TAG=mateusamin/requests-aws-iam-auth-build
 
