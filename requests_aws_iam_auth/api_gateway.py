@@ -7,7 +7,7 @@ from requests import PreparedRequest
 
 class ApiGateway(AuthBase):
     def __init__(self) -> None:
-        botocore_session = Session.Session()
+        botocore_session = Session()
         self.credentials = botocore_session.get_credentials()
         self.region_name = botocore_session.get_config_variable('region')
 
