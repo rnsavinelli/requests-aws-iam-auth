@@ -3,7 +3,7 @@ __pycache__
 .mypy_cache
 *-info/
 
-*.env
+dev-env.sh
 
 build/
 dist/

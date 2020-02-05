@@ -1,4 +1,9 @@
 #!/bin/sh
-echo "$TWINE_USERNAME"
 
-python3 -m twine upload --skip-existing --non-interactive -u "$TWINE_USERNAME" -p "$TWINE_PASSWORD" ./dist/*
+python3 -m twine upload --skip-existing --non-interactive -u "__token__" -p "$TWINE_PASSWORD_TEST" --repository-url "https://test.pypi.org/legacy/" dist/*
+
+echo -n "Look good (y/n)? "
+read answer
+if [ "$answer" != "${answer#[Yy]}" ] ;then
+    python3 -m twine upload --skip-existing --non-interactive -u "__token__" -p "$TWINE_PASSWORD" ./dist/*
+fi
