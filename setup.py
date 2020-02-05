@@ -21,6 +21,7 @@ setup(
     long_description_content_type="text/markdown",
     long_description=open('README.md').read(),
     name="requests_aws_iam_auth",
+    packages=['requests_aws_iam_auth'],
     project_urls={
         "Bug Tracker":
         "https://github.com/mateusamin/requests-aws-iam-auth/issues",
@@ -30,5 +31,5 @@ setup(
     },
     python_requires='>=3.7.0',
     url="https://github.com/mateusamin/requests-aws-iam-auth/",
-    version="0.1.2",
+    version="0.2.0",
 )
