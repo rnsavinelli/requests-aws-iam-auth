@@ -1,15 +1,19 @@
-from botocore.awsrequest import AWSRequest  # type: ignore
-from botocore.session import Session  # type: ignore
-from botocore.auth import SigV4Auth  # type: ignore
+from boto3 import Session
+
+from botocore.awsrequest import AWSRequest
+from botocore.auth import SigV4Auth
 from requests.auth import AuthBase
 from requests import PreparedRequest
 
 
 class ApiGateway(AuthBase):
-    def __init__(self) -> None:
-        botocore_session = Session()
-        self.credentials = botocore_session.get_credentials()
-        self.region_name = botocore_session.get_config_variable('region')
+    def __init__(self, aws_access_key_id, aws_secret_access_key, region_name) -> None:
+        self.session = boto3.Session(
+            aws_access_key_id=aws_access_key_id,
+            aws_secret_access_key=aws_secret_access_key,
+            region_name=region_name,
+        )
+
 
     def __call__(self, r: PreparedRequest) -> PreparedRequest:
         def getSignedRequest():
@@ -17,8 +21,10 @@ class ApiGateway(AuthBase):
                                        headers=r.headers,
                                        url=r.url,
                                        data=r.body)
-            SigV4Auth(self.credentials, 'execute-api',
-                      self.region_name).add_auth(signedRequest)
+
+            SigV4Auth(self.session.get_credentials(), 'execute-api',
+                      self.session.region_name).add_auth(signedRequest)
+
             return signedRequest
 
         if 'connection' in r.headers:
@@ -26,6 +32,7 @@ class ApiGateway(AuthBase):
             del r.headers['connection']
             signedRequest = getSignedRequest()
             r.headers['connection'] = connection
+            
         else:
             signedRequest = getSignedRequest()
 
