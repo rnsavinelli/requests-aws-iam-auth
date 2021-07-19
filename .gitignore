@@ -1,13 +1,1 @@
 __pycache__
-.pytest_cache
-.mypy_cache
-*-info/
-
-dev-env.sh
-
-build/
-dist/
-
-.aws
-
-.mypy_cache/
