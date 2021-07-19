@@ -1,5 +1,4 @@
 from boto3 import Session
-
 from botocore.awsrequest import AWSRequest
 from botocore.auth import SigV4Auth
 from requests.auth import AuthBase
@@ -8,7 +7,7 @@ from requests import PreparedRequest
 
 class ApiGateway(AuthBase):
     def __init__(self, aws_access_key_id, aws_secret_access_key, region_name) -> None:
-        self.session = boto3.Session(
+        self.session = Session(
             aws_access_key_id=aws_access_key_id,
             aws_secret_access_key=aws_secret_access_key,
             region_name=region_name,
