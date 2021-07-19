@@ -54,6 +54,35 @@ Requests uses urllib3 which uses http.client.
 
 Botocore relies on http.client deriving the host when absent. Botocore replicates this derivation and signs with it but does not append the header to the request to be sent. This has the potential for a mismatch error. There is a TODO in botocore to set the host header in the request.
 
+### Copyright
+
+Modified version of [Mateus Amin's requests-aws-iam-auth](https://github.com/MateusAmin/requests-aws-iam-auth) distributed under the same license.
+
+### Modifications
+
+api_gateway has been modified to make its implementation possible independently of your local aws configurations. 
+
+This allows extended integration. For example, aws_access_key_id, aws_secret_access_key and region_name can now be variables extracted from a query performed against a database.
+
+In any case, you can still configure your local aws settings under `~/.aws/config`, to later asign aws_access_key_id, aws_secret_access_key and region_name.
+You can manually instantiate a botocore session object (assuming you use botocore) to extract those values. Eg.
+
+```
+>>> import botocore.session
+>>> session = botocore.session.get_session()
+
+>>> session.get_credentials().access_key
+'AKIAIOSFODNN7EXAMPLE'
+
+>>> session.get_credentials().secret_key
+'wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY'
+
+>>> session.get_config_variable('region')
+'aws-example-region-1'
+```
+
+It is advisable to use the original version of this package if your use case involves using your local configuration.
+
 ### References
 - https://github.com/jmenga/requests-aws-sign
 - https://github.com/MateusAmin/requests-aws-iam-auth
