@@ -56,6 +56,7 @@ Botocore relies on http.client deriving the host when absent. Botocore replicate
 
 ### References
 - https://github.com/jmenga/requests-aws-sign
+- https://github.com/MateusAmin/requests-aws-iam-auth
 - https://docs.python.org/3/library/http.client.html#module-http.client
 - https://hg.python.org/cpython/file/3.2/Lib/http/client.py
 - https://github.com/urllib3/urllib3/blob/063d888bc247eb6bd7aedcd32412bbb53c3c6ffb/src/urllib3/connection.py#L195
