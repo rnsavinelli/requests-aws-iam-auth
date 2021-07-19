@@ -83,6 +83,10 @@ You can manually instantiate a botocore session object (assuming you use botocor
 
 It is advisable to use the original version of this package if your use case involves using your local configuration.
 
+### Contributors
+
+All contributors can be found under the [insights/contributors](https://github.com/rnsavinelli/requests-aws-iam-auth/graphs/contributors) section.
+
 ### References
 - https://github.com/jmenga/requests-aws-sign
 - https://github.com/MateusAmin/requests-aws-iam-auth
