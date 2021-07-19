@@ -10,9 +10,8 @@ class ApiGateway(AuthBase):
         self.session = Session(
             aws_access_key_id=aws_access_key_id,
             aws_secret_access_key=aws_secret_access_key,
-            region_name=region_name,
+            region_name=region_name
         )
-
 
     def __call__(self, r: PreparedRequest) -> PreparedRequest:
         def getSignedRequest():
