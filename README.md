@@ -24,7 +24,7 @@ requests.get("https://" + hostpath, auth=auth)
 ## Developer Information
 
 ### Dependencies
-Botocore
+Botocore, boto3.
 
 ### Headers
 authorization, and x-amz-content-sha256 are directly modified in the signing protocal and will be set.
